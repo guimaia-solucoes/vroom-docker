@@ -45,6 +45,7 @@ RUN apt-get update > /dev/null && \
     npm install && \
     # To share the config.yml & access.log file with the host
     mkdir /conf
+    COPY config.yml /conf/config.yml
 
 #Upgrade glibc
 RUN echo "deb http://ftp.debian.org/debian trixie main" >> /etc/apt/sources.list && \
