@@ -56,7 +56,7 @@ COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 ENV VROOM_DOCKER=osrm \
     VROOM_LOG=/conf
 
-HEALTHCHECK --start-period=10s CMD curl --fail -s http://localhost:3000/health || exit 1
+HEALTHCHECK --start-period=10s CMD curl -sS -o /dev/null http://localhost:3000/ || exit 1
 
 EXPOSE 3000
 ENTRYPOINT ["/bin/bash"]
